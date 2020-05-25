@@ -9,8 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var image: Image? = nil
+    
     var body: some View {
-        Text("Hello, World!")
+        ZStack{
+            VStack{
+                Button(action:{}){
+                    Text("Select a photo")
+                }
+                image?.resizable()
+                    .frame(width:250, height:250)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10)
+            }
+        }
     }
 }
 

@@ -9,25 +9,30 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var image: Image?
+    @State var image: UIImage? = nil
     @State var selection: Int? = nil
+    @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
+    
     var body: some View {
         NavigationView{
             VStack{
                 Text("Chronoface")
-                Spacer()
-                NavigationLink(destination: LibraryView(), tag: 1, selection: $selection){
+                NavigationLink(destination: LibraryView(image: self.$image), tag: 1, selection: $selection){
                     Button(action: {self.selection = 1}){
                         Text("Select a photo")
                     }
                 }
-                Spacer()
+                NavigationLink(destination: CameraView(image: self.$image), tag: 2, selection: $selection){
+                    Button(action: {self.selection = 2}){
+                        Text("Take a Picture")
+                    }
+                }
             }//End of VStack
-            image?.resizable()
-            .frame(width:250, height:250)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-            .shadow(radius: 10)
+//            image?.resizable()
+//            .frame(width:250, height:250)
+//            .clipShape(Circle())
+//            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+//            .shadow(radius: 10)
         }//End of NavigationView
     }
 }

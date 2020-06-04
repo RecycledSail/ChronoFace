@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct CameraView: View {
+    @Binding var image : UIImage?
+    @State private var sourceType : UIImagePickerController.SourceType = .camera
+    @State private var showImagePicker: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+
+        ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType:self.sourceType)
+        }
 }
 
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        CameraView(image: .constant(UIImage()))
     }
 }

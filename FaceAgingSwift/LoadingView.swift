@@ -9,29 +9,29 @@
 import SwiftUI
 
 struct LoadingView: View {
-    @State var isActive = false
+    //Variable declearation
+    @Environment(\.presentationMode) var pre
+    @Binding var doneLoading: Bool
     
+    //Start of Body
     var body: some View {
         VStack{
-            if self.isActive == true{
-                MainView()
-            }
-            else{
-                Text("Loading...")
-            }
+            Text("Loading...")
         }
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                 withAnimation{
-                    self.isActive = true
+                    self.doneLoading = true
+                    self.pre.wrappedValue.dismiss()
                 }
             }
         }
-    }
+    }//End of Body
 }
+
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+        LoadingView(doneLoading: .constant(false))
     }
 }

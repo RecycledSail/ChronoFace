@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var inGallery = false
-    @State var inCamera = false
     @State var inMain = false
     @State var inLoading = true
     var body: some View {
@@ -24,7 +22,7 @@ struct ContentView: View {
              Note that you cannot use dismiss() in your body. use inside a button
              */
             if inMain{
-                MainView(isCamera: self.$inCamera, isGallery: self.$inGallery)
+                MainView()
             }
             else if inLoading{
                 LoadingView(doneLoading: self.$inMain)

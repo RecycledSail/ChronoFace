@@ -19,6 +19,7 @@
 		62C3D2FA2489247800091AA4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C3D2F92489247800091AA4 /* CameraView.swift */; };
 		62C3D2FC2489254800091AA4 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C3D2FB2489254800091AA4 /* LibraryView.swift */; };
 		62C3D2FE248925AF00091AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C3D2FD248925AF00091AA4 /* ViewController.swift */; };
+		62C3D3002489278200091AA4 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 62C3D2FF2489278200091AA4 /* .gitattributes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		62C3D2F92489247800091AA4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		62C3D2FB2489254800091AA4 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		62C3D2FD248925AF00091AA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62C3D2FF2489278200091AA4 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,8 @@
 		6273BAAF247B9AD0003D8F68 = {
 			isa = PBXGroup;
 			children = (
+				62C3D2FF2489278200091AA4 /* .gitattributes */,
+				621E185524891FD10067E25D /* .gitignore */,
 				6273BABA247B9AD0003D8F68 /* FaceAgingSwift */,
 				6273BAB9247B9AD0003D8F68 /* Products */,
 			);
@@ -68,7 +72,6 @@
 		6273BABA247B9AD0003D8F68 /* FaceAgingSwift */ = {
 			isa = PBXGroup;
 			children = (
-				621E185524891FD10067E25D /* .gitignore */,
 				6273BABB247B9AD0003D8F68 /* AppDelegate.swift */,
 				6273BABD247B9AD0003D8F68 /* SceneDelegate.swift */,
 				621E1851248909FD0067E25D /* ContentView.swift */,
@@ -151,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C3D3002489278200091AA4 /* .gitattributes in Resources */,
 				621E185624891FD10067E25D /* .gitignore in Resources */,
 				6273BAC8247B9AD1003D8F68 /* LaunchScreen.storyboard in Resources */,
 				6273BAC5247B9AD1003D8F68 /* Preview Assets.xcassets in Resources */,

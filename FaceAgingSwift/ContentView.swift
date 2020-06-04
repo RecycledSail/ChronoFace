@@ -7,22 +7,21 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct ContentView: View {
     
     @State var image: Image?
-    @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
-    @State private var showSheet : Bool = false
+    @State var selection: Int? = nil
     
     var body: some View {
+        NavigationView{
         ZStack{
             VStack{
-                Button(action:{
-                    self.showSheet = true
-                    self.sourceType = .photoLibrary
-                }){
-                    Text("Select a photo")
+                    NavigationLink(destination: LoadImageView(), tag: 1, selection: $selection){
+                        Button(action: {self.selection = 1}){
+                            Text("Select a photo")
+                        }
+                    }
                 }
                 image?.resizable()
                     .frame(width:250, height:250)
@@ -30,8 +29,6 @@ struct ContentView: View {
                     .overlay(Circle().stroke(Color.white, lineWidth: 4))
                     .shadow(radius: 10)
             }
-        }.sheet(isPresented: $showSheet){
-            ImagePicker(image: self.$image, sourceType:self.sourceType)
         }
     }
 }

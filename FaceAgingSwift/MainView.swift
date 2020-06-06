@@ -12,19 +12,31 @@ struct MainView: View {
     @State var image: UIImage? = nil
     @State var selection: Int? = nil
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
-    
+    @State private var showImagePicker: Bool = false
+
     var body: some View {
         NavigationView{
             VStack{
                 Text("Chronoface")
-                NavigationLink(destination: LibraryView(image: self.$image), tag: 1, selection: $selection){
-                    Button(action: {self.selection = 1}){
-                        Text("Select a photo")
-                    }
-                }
-                NavigationLink(destination: CameraView(image: self.$image), tag: 2, selection: $selection){
-                    Button(action: {self.selection = 2}){
-                        Text("Take a Picture")
+                if image != nil{
+                Image(uiImage: image!)
+                    .resizable()
+                    .frame(width : 250, height: 250)
+               }
+                NavigationLink(destination: ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType:self.sourceType), isActive: $showImagePicker){
+                    VStack{
+                        Button(action: {self.selection = 1
+                            self.sourceType = .photoLibrary
+                            self.showImagePicker = true
+                        }){
+                            Text("Select a photo")
+                        }
+                        Button(action: {self.selection = 2
+                            self.sourceType = .camera
+                            self.showImagePicker = true
+                        }){
+                            Text("Take a Picture")
+                        }
                     }
                 }
             }//End of VStack

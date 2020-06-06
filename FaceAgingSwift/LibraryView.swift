@@ -11,16 +11,10 @@ import SwiftUI
 struct LibraryView: View {
     @Binding var image : UIImage?
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
-    @State private var showImagePicker: Bool = false
-
+    @State private var showImagePicker: Bool = true
+    
     var body: some View {
-
-        ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType:self.sourceType)
-            .sheet(isPresented: self.$showImagePicker){
-                Image(uiImage: self.image!)
-                .resizable()
-                .frame(width: 250, height : 250)
-        }
+            ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType:self.sourceType)
     }
 }
 

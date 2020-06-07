@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var image: UIImage? = nil
+    @ObservedObject var image = InputImage()
     @State var selection: Int? = nil
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
     @State private var showImagePicker: Bool = false
@@ -18,12 +18,17 @@ struct MainView: View {
         NavigationView{
             VStack{
                 Text("Chronoface")
-                if image != nil{
-                Image(uiImage: image!)
-                    .resizable()
-                    .frame(width : 250, height: 250)
-               }
-                NavigationLink(destination: ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType:self.sourceType), isActive: $showImagePicker){
+                Spacer()
+                if image.data != nil{
+                    ConfirmView(image: self.image)
+                }
+                NavigationLink(destination: HelpView()) {
+                    HStack {
+                        Text("Help")
+                    }
+                }
+                Spacer()
+                NavigationLink(destination: ImagePicker(image: self.$image.data, isShown: self.$showImagePicker, sourceType:self.sourceType), isActive: $showImagePicker){
                     VStack{
                         Button(action: {self.selection = 1
                             self.sourceType = .photoLibrary

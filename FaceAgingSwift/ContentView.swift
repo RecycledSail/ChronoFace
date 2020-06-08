@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State var inMain = false
     @State var inLoading = true
+    
     var body: some View {
         VStack{
             /*

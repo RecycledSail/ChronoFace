@@ -10,9 +10,9 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var image = InputImage()
-    @State var selection: Int? = nil
     @State private var sourceType : UIImagePickerController.SourceType = .photoLibrary
     @State private var showImagePicker: Bool = false
+    @State var next : Bool = false
 
     var body: some View {
         NavigationView{
@@ -20,7 +20,9 @@ struct MainView: View {
                 Text("Chronoface")
                 Spacer()
                 if image.data != nil{
-                    ConfirmView(image: self.image)
+                    NavigationLink(destination: ConfirmView(image: self.image), isActive: $next){
+                        EmptyView()
+                    }
                 }
                 NavigationLink(destination: HelpView()) {
                     HStack {
@@ -28,20 +30,20 @@ struct MainView: View {
                     }
                 }
                 Spacer()
-                NavigationLink(destination: ImagePicker(image: self.$image.data, isShown: self.$showImagePicker, sourceType:self.sourceType), isActive: $showImagePicker){
                     VStack{
-                        Button(action: {self.selection = 1
+                        Button(action: {
                             self.sourceType = .photoLibrary
                             self.showImagePicker = true
+                            self.next = true
                         }){
                             Text("Select a photo")
                         }
-                        Button(action: {self.selection = 2
+                        Button(action: {
                             self.sourceType = .camera
                             self.showImagePicker = true
+                            self.next = true
                         }){
-                            Text("Take a Picture")
-                        }
+                        Text("Take a Picture")
                     }
                 }
             }//End of VStack
@@ -51,6 +53,9 @@ struct MainView: View {
 //            .overlay(Circle().stroke(Color.white, lineWidth: 4))
 //            .shadow(radius: 10)
         }//End of NavigationView
+            .sheet(isPresented: self.$showImagePicker){
+                ImagePicker(image: self.$image.data, isShown: self.$showImagePicker, sourceType:self.sourceType)
+            }
     }
 }
 

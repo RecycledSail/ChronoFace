@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		12253040248E7C7000C54FF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1225303F248E7C7000C54FF3 /* Main.storyboard */; };
 		12253042248E7F8000C54FF3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12253041248E7F8000C54FF3 /* FirstViewController.swift */; };
 		12253044248E818C00C54FF3 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12253043248E818C00C54FF3 /* ConfirmViewController.swift */; };
+		12E16C47249CFB2100D0DE28 /* Shout in Frameworks */ = {isa = PBXBuildFile; productRef = 12E16C46249CFB2100D0DE28 /* Shout */; };
 		3F39E152248D3EC300D8E7E5 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39E151248D3EC300D8E7E5 /* HelpView.swift */; };
 		3F39E154248D4C3E00D8E7E5 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39E153248D4C3E00D8E7E5 /* ConfirmView.swift */; };
 		3F39E156248D5C5C00D8E7E5 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 3F39E155248D5C5C00D8E7E5 /* Resource */; };
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E16C47249CFB2100D0DE28 /* Shout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +135,9 @@
 			dependencies = (
 			);
 			name = FaceAgingSwift;
+			packageProductDependencies = (
+				12E16C46249CFB2100D0DE28 /* Shout */,
+			);
 			productName = FaceAgingSwift;
 			productReference = 6273BAB8247B9AD0003D8F68 /* ChronoFace.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +166,9 @@
 				Base,
 			);
 			mainGroup = 6273BAAF247B9AD0003D8F68;
+			packageReferences = (
+				12E16C45249CFB2100D0DE28 /* XCRemoteSwiftPackageReference "Shout" */,
+			);
 			productRefGroup = 6273BAB9247B9AD0003D8F68 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -400,6 +408,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12E16C45249CFB2100D0DE28 /* XCRemoteSwiftPackageReference "Shout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jakeheis/Shout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12E16C46249CFB2100D0DE28 /* Shout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12E16C45249CFB2100D0DE28 /* XCRemoteSwiftPackageReference "Shout" */;
+			productName = Shout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6273BAB0247B9AD0003D8F68 /* Project object */;
 }

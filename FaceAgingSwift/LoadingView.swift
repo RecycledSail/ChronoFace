@@ -16,7 +16,7 @@ struct LoadingView: View {
     //Start of Body
     var body: some View {
         VStack{
-            Text("Loading...")
+            Text("로딩 중...")
         }
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 3){

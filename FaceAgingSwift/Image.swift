@@ -5,10 +5,12 @@ class InputImage: ObservableObject {
     public init() {
         
     }
+    @Published var next: Bool = false
     @Published var data: UIImage? = nil
     @Published var resultImage: UIImage? = nil
     
-    func doSomething() {
-        print("되냐?")
+    func transform() {
+        sleep(UInt32(10))
+        resultImage = data
     }
 }

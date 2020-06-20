@@ -7,11 +7,11 @@ struct ConfirmView: View {
     var body: some View {
         NavigationView{
             VStack {
-                if doTransform {
-                    NavigationLink(destination: TransformingView(image: self.image), isActive: self.$image.next) {
+//                if doTransform {
+                    NavigationLink(destination: TransformingView(image: self.image), isActive: $doTransform) {
                         EmptyView()
                     }
-                }
+//                }
                 Text("당신의 얼굴이 맞습니까?")
                 Image(uiImage: image.data!)
                     .resizable()

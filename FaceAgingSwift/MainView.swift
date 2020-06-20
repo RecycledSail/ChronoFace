@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var image = InputImage()
+    @ObservedObject var image = imageInput //InputImage()
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var showImagePicker: Bool = false
     

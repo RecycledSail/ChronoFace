@@ -27,7 +27,7 @@ class InputImage: ObservableObject {
     
     let modelUpload = SourceUploadModel()
     let modelExec = FaceAgingExecuteModel()
-    let modelResult = DownloadImage()
+    //let modelResult = DownloadImage()
     
     func transform() {
         //  업로드 순서
@@ -71,12 +71,12 @@ class InputImage: ObservableObject {
           // return self.image
        }
        func downloadImage() {
-           let url = URL(string: "http://104.198.63.47/http/result2.php")!
+           let url = URL(string: "http://222.232.163.198/php/result.php")!
            self.getImage(from: url){ data, resp, err in
                guard let data = data, err == nil else { return }
                print(resp?.suggestedFilename ?? url.lastPathComponent)
                DispatchQueue.main.async(){
-                   self.data = UIImage(data: data)!
+                self.data = UIImage(data: data)!
                 print(self.data)
                 self.resultImage = self.data
                 self.isResult = true

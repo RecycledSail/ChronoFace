@@ -5,7 +5,7 @@
 //  Created by #include on 2020/06/21.
 //  Copyright © 2020 Lim Jun Young. All rights reserved.
 //
-
+/*
 import Foundation
 import UIKit
 
@@ -29,7 +29,7 @@ class DownloadImage {
        // return self.image
     }
     func downloadImage()    {
-        let url = URL(string: "http://104.198.63.47/http/results/test_as_male.png")!
+        let url = URL(string: "http://222.232.163.198/php/result.php")!
         self.getImage(from: url){ data, resp, err in
             guard let data = data, err == nil else { return }
             print(resp?.suggestedFilename ?? url.lastPathComponent)
@@ -40,3 +40,6 @@ class DownloadImage {
         }
     }
 }
+*/
+
+//NOT USING ANYMORE

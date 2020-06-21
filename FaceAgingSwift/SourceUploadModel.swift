@@ -15,7 +15,7 @@ class SourceUploadModel {
         
         let session = URLSession(configuration: .default)
         
-        let stringURL = "http://104.198.63.47/http/upload.php"
+        let stringURL = "http://222.232.163.198/php/upload.php"
         let url = URL(string: stringURL)!
         var request = URLRequest(url: url)
         let boundary = "Boundary-\(UUID().uuidString)"

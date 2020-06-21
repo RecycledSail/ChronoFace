@@ -10,7 +10,7 @@ import Foundation
 
 class FaceAgingExecuteModel {
     func requestToServer(closureNextProc:@escaping () -> Void) {
-        let url = URL(string: "http://104.198.63.47/http/execute.php")!
+        let url = URL(string: "http://222.232.163.198/php/network/Face-Aging-CAAE/main.py")!
         let task = URLSession(configuration: .default).dataTask(with: url) { (data, resp, err) in
             print(String(data: data!, encoding: .utf8))
             closureNextProc()

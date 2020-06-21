@@ -20,6 +20,7 @@ class InputImage: ObservableObject {
     
     let modelUpload = SourceUploadModel()
     let modelExec = FaceAgingExecuteModel()
+    let modelResult = DownloadImage()
     
     func transform() {
         //  업로드 순서
@@ -28,11 +29,16 @@ class InputImage: ObservableObject {
         if let sourceImage = data {
             if let sourceJPG = sourceImage.jpegData(compressionQuality: 1.0) {
                 // 서버로 보내볼까~
+                
                 modelUpload.requestToServer(sourceJPG: sourceJPG) {
                     self.modelExec.requestToServer {
-                        // 마지막 단계 호출은 여기에서......
+                        OperationQueue.main.addOperation {
+                            self.data = self.modelResult.getImage()
+                        } 
                     }
                 }
+ 
+                //self.data = self.modelResult.getImage()
             }
         }
         // 실행 순서

@@ -8,7 +8,7 @@ struct ConfirmView: View {
         NavigationView{
             VStack {
 //                if doTransform {
-                    NavigationLink(destination: TransformingView(image: self.image), isActive: $doTransform) {
+                    NavigationLink(destination: ResultView(image: self.image), isActive: $doTransform) {
                         EmptyView()
                     }
 //                }

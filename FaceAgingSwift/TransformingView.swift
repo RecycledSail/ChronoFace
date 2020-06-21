@@ -12,7 +12,6 @@ struct TransformingView: View {
                     EmptyView()
                 }
                 .onAppear() {
-                    self.image.transform()
                     self.timeToResult = true
                 }
 

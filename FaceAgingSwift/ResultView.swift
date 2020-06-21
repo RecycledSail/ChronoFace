@@ -2,28 +2,33 @@ import SwiftUI
 
 struct ResultView: View {
     @ObservedObject var image: InputImage
+    @State var isLoaded = false
     
     var body: some View {
         VStack {
-            Text("당신의 과거와 미래의 얼굴입니다.")
             if image.resultImage != nil {
+                Text("당신의 과거와 미래의 얼굴입니다.")
+
                 ResultScrollView(image: self.image).padding(10)
-            }
-            Spacer()
-            Button(action: {
-                self.image.next = false
-            }) {
-                HStack {
-                    //Image(systemName: "home")
-                    Text("처음으로")
+                Spacer()
+                Button(action: {
+                    self.image.next = false
+                }) {
+                    HStack {
+                        //Image(systemName: "home")
+                        Text("처음으로")
+                    }
                 }
             }
+            else {
+                Text("얼굴 변환 중...")
+            }
         }
-            /*
         .onAppear() {
             self.image.transform()
+            self.isLoaded = true
+            
         }
- */
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)

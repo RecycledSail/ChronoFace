@@ -20,6 +20,7 @@ class InputImage: ObservableObject {
     public var resultImage: UIImage? = nil{
         didSet{
             isResult = true
+            self.resultImage = self.resultImage!.crop(rect: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 128.0, height: 1280.0)))
         }
     }
     @Published var isResult: Bool
@@ -49,12 +50,8 @@ class InputImage: ObservableObject {
                 //self.data = self.modelResult.getImage()
             }
         }
-        // 실행 순서
-        // 1. 스크립트 실행..
         
-        
-        sleep(UInt32(10))
-        resultImage = data
+        //sleep(UInt32(10))
     }
     func getImage(from url: URL, completion: @escaping (Data?, URLResponse?, Error?)-> ()){
            URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
@@ -73,15 +70,31 @@ class InputImage: ObservableObject {
     */
           // return self.image
        }
-       func downloadImage()    {
-           let url = URL(string: "http://104.198.63.47/http/results/test_as_male.png")!
+       func downloadImage() {
+           let url = URL(string: "http://104.198.63.47/http/result2.php")!
            self.getImage(from: url){ data, resp, err in
                guard let data = data, err == nil else { return }
                print(resp?.suggestedFilename ?? url.lastPathComponent)
                DispatchQueue.main.async(){
                    self.data = UIImage(data: data)!
-               }
-               print(data)
-           }
+                print(self.data)
+                self.resultImage = self.data
+                self.isResult = true
+                
+                }
        }
+   }
+}
+
+extension UIImage{
+    func crop(rect: CGRect) -> UIImage {
+        var rect = rect
+        rect.origin.x *= self.scale
+        rect.origin.y *= self.scale
+        rect.size.width *= self.scale
+        rect.size.height *= self.scale
+        let imageRef = self.cgImage!.cropping(to: rect)
+        let image = UIImage(cgImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
+        return image
+    }
 }

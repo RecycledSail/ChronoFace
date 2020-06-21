@@ -13,6 +13,7 @@ struct TransformingView: View {
                 }
                 .onAppear() {
                     self.image.transform()
+                    self.timeToResult = true
                 }
 
             }

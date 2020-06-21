@@ -19,9 +19,11 @@ struct ResultView: View {
                 }
             }
         }
+            /*
         .onAppear() {
             self.image.transform()
         }
+ */
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ResultView: View {
     @ObservedObject var image: InputImage
-    @State var isLoaded = false
     
     var body: some View {
         VStack {
@@ -13,6 +12,7 @@ struct ResultView: View {
                 Spacer()
                 Button(action: {
                     self.image.next = false
+                    self.image.resultImage = nil
                 }) {
                     HStack {
                         //Image(systemName: "home")
@@ -26,8 +26,6 @@ struct ResultView: View {
         }
         .onAppear() {
             self.image.transform()
-            self.isLoaded = true
-            
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitle("", displayMode: .inline)

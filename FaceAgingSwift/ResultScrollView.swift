@@ -6,9 +6,11 @@ struct ResultScrollView: View {
     var body: some View {
         ScrollView(Axis.Set.vertical, showsIndicators: true) {
             VStack {
-                Image(uiImage: image.resultImage!)
-                .resizable()
-                .frame(width: 250, height: 2500)
+                if(image.resultImage != nil){
+                    Image(uiImage: image.resultImage!)
+                    .resizable()
+                    .frame(width: 250, height: 2500)
+                }
             }
         }
     }

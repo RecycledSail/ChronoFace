@@ -19,8 +19,10 @@ class InputImage: ObservableObject {
     @Published var data: UIImage? = nil
     public var resultImage: UIImage? = nil{
         didSet{
-            isResult = true
-            self.resultImage = self.resultImage!.crop(rect: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 128.0, height: 1280.0)))
+            if self.resultImage != nil{
+                isResult = true
+                self.resultImage = self.resultImage!.crop(rect: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: CGSize(width: 128.0, height: 1280.0)))
+            }
         }
     }
     @Published var isResult: Bool

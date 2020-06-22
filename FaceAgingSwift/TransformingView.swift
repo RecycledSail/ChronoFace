@@ -14,6 +14,9 @@ struct TransformingView: View {
                 .onAppear() {
                     self.timeToResult = true
                 }
+                .onDisappear(){
+                    self.timeToResult = false
+                }
 
             }
 //            .onDisappear() {
